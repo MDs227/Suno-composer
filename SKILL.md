@@ -1,6 +1,6 @@
 ---
 name: suno-composer
-description: 個人化 Suno 音樂創作助理。用於把主題、既有歌詞、日記、筆記或 NotebookLM 摘要轉成可直接貼入 Suno 的 Title、Styles、Exclude 與 Lyrics；也支援中文作詞、Hook 或段落改寫、含蓄度調整、雙人對唱與 Suno 功能用法查詢。當使用者說想做一首歌、寫 Suno 提示詞、生成或修改歌詞、想選曲風、排除不想要的聲音，或詢問 Voices、My Taste、Custom Models、Studio、Stems 時使用。
+description: 個人化 Suno 音樂創作助理。用於把主題、既有歌詞、日記、筆記或 NotebookLM 摘要轉成可直接貼入 Suno 的 Title、Styles、Exclude 與 Lyrics；支援繁中、英文、日文與混合語言作詞、Hook 或段落改寫、含蓄度調整、雙人對唱、當代趨勢或經典作曲規律轉譯，以及 Suno 功能用法查詢。當使用者想做歌、寫 Suno 提示詞、生成或修改歌詞、選曲風、排除聲音、研究流行或經典歌曲特徵，或詢問 Voices、My Taste、Custom Models、Studio、Stems 時使用。
 ---
 
 # Suno Composer
@@ -16,7 +16,12 @@ description: 個人化 Suno 音樂創作助理。用於把主題、既有歌詞�
 ## 依任務讀取參考檔
 
 - 寫 Suno 欄位或處理排除條件：讀 [references/prompting-and-exclude.md](references/prompting-and-exclude.md)。
-- 寫或改中文歌詞：讀 [references/chinese-lyrics-craft.md](references/chinese-lyrics-craft.md)。
+- 寫或改繁中歌詞：讀 [references/chinese-lyrics-craft.md](references/chinese-lyrics-craft.md)。
+- 寫或改英文歌詞：讀 [references/english-lyrics-craft.md](references/english-lyrics-craft.md)。
+- 寫或改日文歌詞：讀 [references/japanese-lyrics-craft.md](references/japanese-lyrics-craft.md)。
+- 混合語言歌詞：只讀實際使用的語言檔；單一外來詞不需要多載一份參考檔。
+- 使用目前流行方向：讀 [references/trend-signals-current.md](references/trend-signals-current.md)，查核日期與官方榜單後再使用。
+- 研究經典歌曲的耐久規律：讀 [references/canon-patterns.md](references/canon-patterns.md)，只轉譯結構規律，不複製作品。
 - 依人物個性決定語氣、含蓄度或視角：讀 [references/character-driven-writing.md](references/character-driven-writing.md)。
 - 使用日記、人物、對話、藝人或既有作品：讀 [references/privacy-and-rights.md](references/privacy-and-rights.md)。
 - 詢問 Suno 功能、方案或工作流程：讀 [references/current-suno-features.md](references/current-suno-features.md)。
@@ -36,6 +41,7 @@ description: 個人化 Suno 音樂創作助理。用於把主題、既有歌詞�
 | 日記、筆記、NotebookLM 摘要 | 來源先行 | 先做同意與匿名化，再提煉情緒、意象、敘事弧與 Hook |
 | 只想改 Hook、Verse、押韻或含蓄度 | 修訂 | 只改指定範圍，保留未指定段落 |
 | 詢問 Voices、Studio、Stems 等 | 功能指引 | 查核時效性資料後給操作建議，不虛構入口或方案 |
+| 想參考目前流行或過去名曲 | 研究轉譯 | 先分清趨勢快照與耐久規律，再轉成不含作品名稱的創作變數 |
 
 不要假設 NotebookLM、Google Drive 或其他來源工具存在。若無法直接存取，請使用者貼上相關摘要或片段；不要捏造查詢結果。
 
@@ -99,9 +105,11 @@ description: 個人化 Suno 音樂創作助理。用於把主題、既有歌詞�
 
 若使用者的 Suno 介面沒有 Exclude 欄位，提供一個明確標為「相容備案」的 Styles 版本，在末尾加入簡短 Avoid: ...；仍保留獨立 Exclude 作為首選。
 
-### 5. 寫中文歌詞
+### 5. 依語言寫歌詞
 
-先確定每段功能，再寫句子：
+先依主語言讀取對應工藝檔。繁中檢查聲調、韻腳與意象；英文檢查詞重音、慣用語與可延展母音；日文檢查 mora、助詞、讀音與語域。混合語言先指定每段主語言與轉換功能。
+
+所有語言都先確定每段功能，再寫句子：
 
 - Verse：具體場景與敘事推進。
 - Pre-Chorus：縮短句子，累積張力。
@@ -109,7 +117,9 @@ description: 個人化 Suno 音樂創作助理。用於把主題、既有歌詞�
 - Bridge：改變視角、時間或認知，不只換一組同義詞。
 - Outro：回收前文物件或留一個未說完的動作。
 
-優先使用具體物件、動作與感官線索；少用「心碎、永遠、命運、眼淚」等無支撐的抽象詞。詳細押韻、意象尺度、含蓄度與對唱規則見中文作詞參考檔。
+優先使用具體物件、動作與感官線索；少用無支撐的抽象情緒。詳細押韻、節奏、讀音、意象尺度與對唱規則見對應語言參考檔。
+
+若使用趨勢或經典研究，最多挑 1 個結構原則、1 個詞作原則與 1 個編曲原則；不得把榜單、藝人或歌曲名稱直接轉成風格捷徑。
 
 ### 6. 修訂與比較
 
@@ -144,6 +154,9 @@ description: 個人化 Suno 音樂創作助理。用於把主題、既有歌詞�
 | 生成結果太散 | 每輪只改 1–2 個變數，固定 Lyrics 或 Styles 其中一側 |
 | 不要合唱卻出現群唱 | 移除可能帶來群唱的語意，加入 solo lead vocal，並在 Exclude 放 choir、crowd vocals |
 | 中英日混用失控 | 明定每段語言；若非刻意混語，回到單一主語言 |
+| 英文歌詞字面正確但唱起來彆扭 | 重查自然詞重音、慣用語、長音母音與每行資訊密度 |
+| 日文歌詞讀音或節奏不穩 | 重查 mora、特殊拍、助詞、漢字讀音與句尾語域 |
+| 把單週榜單當成成功公式 | 標示快照日期，跨日期與市場複驗，只做 A/B 測試 |
 | 目前功能或方案查不到 | 輸出「【資料不足，無法確認】」並給官方查核路徑 |
 
 ## 交付前檢查
@@ -153,6 +166,8 @@ description: 個人化 Suno 音樂創作助理。用於把主題、既有歌詞�
 - [ ] Exclude 是獨立欄位，正負向描述沒有互相衝突。
 - [ ] Lyrics 的方括號只表示結構或演唱指示。
 - [ ] Chorus 有一句能被記住的核心句。
+- [ ] 已依主語言檢查重音、聲調或 mora 與自然語域。
+- [ ] 趨勢或經典規律有日期、來源與證據邊界，沒有作品全文或藝人模仿捷徑。
 - [ ] 每次修訂只改 1–2 個主要變數，未修改區域保持不動。
 - [ ] 時效性 Suno 資訊已由官方資料查核，或已明確標示無法確認。
 
