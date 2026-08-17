@@ -1,4 +1,4 @@
 interface:
   display_name: "Suno Composer"
-  short_description: "把主題、筆記或歌詞轉成可貼入 Suno 的完整創作包"
-  default_prompt: "Use $suno-composer to turn my idea into a privacy-safe Suno creation pack."
+  short_description: "繁中、英文、日文的 Suno 作詞與歌曲規律助理"
+  default_prompt: "Use $suno-composer to create a privacy-safe multilingual Suno pack grounded in current or classic songcraft patterns."
