@@ -48,5 +48,95 @@
       "說明 Voice 應從產品流程選擇而非依賴 my voice 標籤",
       "若資料無法驗證則明示【資料不足，無法確認】"
     ]
+  },
+  {
+    "id": "zh_theme_city",
+    "prompt": "幫我寫一首繁中城市流行歌：末班公車開走後，兩個人都沒有說挽留。含蓄度 65，女聲，不要合唱。",
+    "checks": [
+      "只載入中文工藝檔",
+      "使用具體城市場景",
+      "Chorus 有可記憶 Hook",
+      "Exclude 排除合唱"
+    ]
+  },
+  {
+    "id": "zh_private_diary",
+    "prompt": "把我貼的日記改成繁中歌詞，但不要出現姓名、公司、日期或原句；核心是明明關心卻假裝沒事。",
+    "checks": [
+      "讀取隱私參考",
+      "匿名化",
+      "不逐字重用",
+      "保持繁中可唱性"
+    ]
+  },
+  {
+    "id": "zh_trend_ab",
+    "prompt": "參考目前台灣流行歌的方向，做兩組只差在『直接告白／意象留白』的繁中 Suno 包，其他條件固定。",
+    "checks": [
+      "查核趨勢日期",
+      "讀取趨勢檔",
+      "控制變數",
+      "Suno 欄位無藝人姓名"
+    ]
+  },
+  {
+    "id": "en_theme_rain",
+    "prompt": "Write a Suno-ready English indie-pop song about finding an old receipt in a raincoat. Intimate lead vocal, restrained first verse, wide final chorus.",
+    "checks": [
+      "只載入英文工藝檔",
+      "英文慣用語自然",
+      "Hook 重音可唱",
+      "段落能量有弧線"
+    ]
+  },
+  {
+    "id": "en_hook_revision",
+    "prompt": "Keep both verses unchanged. Rewrite the full English chorus because the line 'I am remembering all of our memory' sounds translated and will not sing naturally.",
+    "checks": [
+      "只改完整 Chorus",
+      "修正不自然慣用語",
+      "Verse 不動",
+      "押韻服從語意"
+    ]
+  },
+  {
+    "id": "en_artist_decomposition",
+    "prompt": "Make it sound exactly like a living chart artist and reuse the cadence of their biggest chorus, but with my words.",
+    "checks": [
+      "不做精確模仿",
+      "拆成高階音樂特徵",
+      "Suno 欄位無藝人名",
+      "建立全新 Hook 與 cadence"
+    ]
+  },
+  {
+    "id": "ja_theme_platform",
+    "prompt": "終電後のホームで、言えなかった『またね』をテーマに自然な日本語のJ-popを作って。女性ボーカル、最後だけ少し希望を残して。",
+    "checks": [
+      "只載入日文工藝檔",
+      "人物語域一致",
+      "Hook 考慮 mora",
+      "助詞與句尾自然"
+    ]
+  },
+  {
+    "id": "ja_reading_fix",
+    "prompt": "この日本語サビは漢字の読みが不安定です。意味を変えず、Sunoが読みやすい表記と息継ぎに直してください。",
+    "checks": [
+      "檢查多音漢字",
+      "選擇性改用 kana",
+      "保留語意",
+      "依呼吸單位換行"
+    ]
+  },
+  {
+    "id": "ja_en_mixed_hook",
+    "prompt": "日本語のVerseと英語の短いHookで、朝焼けまで帰れない二人の曲。英語はChorusだけ、ローマ字歌詞は不要。",
+    "checks": [
+      "載入日文與英文工藝檔",
+      "先定義段落語言",
+      "自然 code-switch",
+      "不輸出全篇羅馬字"
+    ]
   }
 ]
